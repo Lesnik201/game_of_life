@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
 
     const auto &[ROWS, COLS] = row_cols;
 
-    std::cout << "\033[2J\033[H" << std::flush;
+    std::cout << "\033[?1049h" << "\033[H" << std::flush;
     while (true) {
         std::cout << "\033[H";
 
@@ -103,6 +103,7 @@ int main(int argc, char *argv[]) {
         std::this_thread::sleep_for(std::chrono::milliseconds(300));
     }
 
+    std::cout << "\033[?1049l" << std::flush;
     return 0;
 }
 
